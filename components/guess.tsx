@@ -37,7 +37,7 @@ export default function Component() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-violet-400 to-red-400 flex items-center justify-center p-4 select-none">
-      <Card className="w-full max-w-md bg-white/80 backdrop-blur-sm scale-150">
+      <Card className="w-full max-w-md bg-white/80 backdrop-blur-sm scale-100">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-center">Function Guesser Game</CardTitle>
           <CardDescription className="text-center">
