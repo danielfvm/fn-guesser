@@ -30,12 +30,14 @@ export default function Component() {
   }, [])
 
   const enterText = (e: FormEvent<HTMLSpanElement>) => {
+    if (/\s+/.test(e.currentTarget.innerText))
+      e.currentTarget.innerText = e.currentTarget.innerText.replaceAll(/\s+/g, "");
     setInput(e.currentTarget.innerText);
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-violet-400 to-red-400 flex items-center justify-center p-4 scale-150 select-none">
-      <Card className="w-full max-w-md bg-white/80 backdrop-blur-sm">
+    <div className="min-h-screen bg-gradient-to-b from-violet-400 to-red-400 flex items-center justify-center p-4 select-none">
+      <Card className="w-full max-w-md bg-white/80 backdrop-blur-sm scale-150">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-center">Function Guesser Game</CardTitle>
           <CardDescription className="text-center">
@@ -51,7 +53,7 @@ export default function Component() {
                 className="p-1 rounded-lg outline-none text-violet-600 text-3xl align-middle" 
                 ref={inputRef} 
                 onInput={(e) => enterText(e)} 
-                onBlur={() => {console.log("test"); setTimeout(() => inputRef.current?.focus(), 1);}}
+                onBlur={() => setTimeout(() => inputRef.current?.focus(), 1)}
               />
               ) =
               <span className="text-violet-600 text-3xl align-middle">
